@@ -1,4 +1,4 @@
-package com.example.mdmovies_midterm
+package com.example.mdmovies_midterm.ui
 
 import android.os.Bundle
 import android.util.Log
