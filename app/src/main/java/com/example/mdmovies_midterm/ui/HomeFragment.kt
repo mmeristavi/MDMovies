@@ -14,7 +14,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mdmovies_midterm.MovieAdapter.MovieAdapter
 import com.example.mdmovies_midterm.Utils.Resource
-import com.example.mdmovies_midterm.ViewModel.HomeViewModel
+import com.example.mdmovies_midterm.ViewModels.HomeViewModel
 import com.example.mdmovies_midterm.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 

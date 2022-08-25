@@ -8,23 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.mdmovies_midterm.MainActivity
-import com.example.mdmovies_midterm.R
-import com.example.mdmovies_midterm.databinding.FragmentSignUpBinding
+import com.example.mdmovies_midterm.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class SignUpFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private var binding: FragmentSignUpBinding? = null
+    private var binding: FragmentRegisterBinding? = null
 
     companion object {
-        fun newInstance() = SignUpFragment()
+        fun newInstance() = RegisterFragment()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding!!.root
 
     }

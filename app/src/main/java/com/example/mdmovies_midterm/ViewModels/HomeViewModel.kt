@@ -1,4 +1,4 @@
-package com.example.mdmovies_midterm.ViewModel
+package com.example.mdmovies_midterm.ViewModels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
