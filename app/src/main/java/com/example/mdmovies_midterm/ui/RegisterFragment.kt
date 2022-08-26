@@ -26,7 +26,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                 Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
-
             }
             if (password != repeatPassword) {
                 Toast.makeText(
@@ -34,6 +33,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     "Passwords do not match",
                     Toast.LENGTH_SHORT
                 ).show()
+                return@setOnClickListener
 
             }
 

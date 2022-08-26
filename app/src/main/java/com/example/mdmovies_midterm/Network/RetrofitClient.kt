@@ -22,7 +22,7 @@ object RetrofitClient {
 
 interface Movies {
     @GET("movie/top_rated")
-    suspend fun getItems (@Query("api_key") key : String): Response<MoviesModel>
+    suspend fun getItems (@Query("api_key") key : String, @Query("page") page : Int): Response<MoviesModel>
 //
 //    @GET("genre/movie/list")
 //    suspend fun getGenres (@Query("api_key") key : String): Response<>

@@ -24,7 +24,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             if (email.isEmpty() || password.isEmpty()
             ) {
                 Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
-
+                return@setOnClickListener
             }
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
