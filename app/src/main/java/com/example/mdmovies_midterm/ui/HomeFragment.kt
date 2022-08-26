@@ -2,26 +2,23 @@ package com.example.mdmovies_midterm.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
-import android.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mdmovies_midterm.Adapters.LoaderAdapter
+import com.example.mdmovies_midterm.Adapters.MovieAdapter
 import com.example.mdmovies_midterm.BaseFragment
 import com.example.mdmovies_midterm.Models.MoviesModel
-import com.example.mdmovies_midterm.MovieAdapter.MovieAdapter
 import com.example.mdmovies_midterm.R
-import com.example.mdmovies_midterm.Utils.Resource
 import com.example.mdmovies_midterm.ViewModels.HomeViewModel
 import com.example.mdmovies_midterm.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
-import java.util.*
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
@@ -34,39 +31,64 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
+        logOutListener()
+        buildAdapter()
+        filter()
+        observers()
 
-        logOutListener ()
 
-        viewModel.getMovies(key = requireContext().getString(R.string.key))
 
+
+
+
+//        viewModel.getMovies(key = requireContext().getString(R.string.key))
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.newState.collect {
+//                    when (it) {
+//                        is Resource.Success -> {
+//
+//                            movieList = it.data
+//                            adapter.submitData(movieList.toMutableList())
+//
+//                            Log.d("Success", "${it.data.size}")
+//                            binding.progressBar.isVisible = false
+//                        }
+//                        is Resource.Error -> {
+//                            Log.d("Error", it.errorMessage)
+//                            binding.progressBar.isVisible = false
+//                        }
+//                        is Resource.Loader -> {
+//                            Log.d("Loader", "${it.isLoading}")
+//                            binding.progressBar.isVisible = it.isLoading
+//                        }
+//                    }
+//                }
+//            }
+//
+//            viewLifecycleOwner.lifecycleScope.launch {
+//                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                    viewModel.newState.collect {
+//                        adapter.submitData(it)
+//                    }
+//                }
+//            }
+//        }
+    }
+
+    private fun buildAdapter() {
         adapter = MovieAdapter()
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        adapter.withLoadStateFooter(footer = LoaderAdapter())
+    }
 
-        filter()
 
-
+    private fun observers() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.newState.collect {
-                    when (it) {
-                        is Resource.Success -> {
-                            movieList = it.data
-                            adapter.setData(movieList.toMutableList())
-
-                            Log.d("Success", "${it.data.size}")
-                            binding.progressBar.isVisible = false
-                        }
-                        is Resource.Error -> {
-                            Log.d("Error", it.errorMessage)
-                            binding.progressBar.isVisible = false
-                        }
-                        is Resource.Loader -> {
-                            Log.d("Loader", "${it.isLoading}")
-                            binding.progressBar.isVisible = it.isLoading
-                        }
-                    }
-                }
+            viewModel.moviePager.collect {
+                adapter.submitData(it)
+                Log.d("incoming", "213")
             }
         }
     }
@@ -77,18 +99,34 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             val filteredList = movieList.filter {
                 it?.title?.lowercase()?.contains(text.toString().lowercase()) ?: false
             }
-            adapter.setData(filteredList.toMutableList())
         }
     }
 
 
-    private fun logOutListener () {
+
+
+
+    private fun logOutListener() {
         binding.btnLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSignInFragment())
         }
     }
 
+
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_item, menu)
+
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.searchBar) {
+            //findNavController().navigate()
+        }
+        return true
+    }
 
 }
 
