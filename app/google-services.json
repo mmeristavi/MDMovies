@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "258853464368",
-    "project_id": "mdmovies-midterm",
-    "storage_bucket": "mdmovies-midterm.appspot.com"
+    "project_number": "155772272896",
+    "project_id": "mdmovies-midterm-2b637",
+    "storage_bucket": "mdmovies-midterm-2b637.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:258853464368:android:930ea7dda978b3e876c0f5",
+        "mobilesdk_app_id": "1:155772272896:android:2748cb34d8b508a5d133e5",
         "android_client_info": {
           "package_name": "com.example.mdmovies_midterm"
         }
       },
       "oauth_client": [
         {
-          "client_id": "258853464368-baa00vvq9bgmjshc08c03v3qqllm8d3d.apps.googleusercontent.com",
+          "client_id": "155772272896-fpeouee0e57vgvm48cfll06n06fbfte0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAV1zqJwM3sp6mROdcCft0-eCwcOKqpVpo"
+          "current_key": "AIzaSyBg5zftxGfeO9tlyydwO5n7ArOR-5f4FYw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "258853464368-baa00vvq9bgmjshc08c03v3qqllm8d3d.apps.googleusercontent.com",
+              "client_id": "155772272896-fpeouee0e57vgvm48cfll06n06fbfte0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

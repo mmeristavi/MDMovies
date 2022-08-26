@@ -8,7 +8,7 @@ data class MoviesModel(
     val totalPages: Int?,
     @SerializedName("total_results")
     val totalResults: Int?,
-    val results: List<Result?>?
+    val results: MutableList<Result?>?
 ) {
     data class Result(
         val adult: Boolean?,

@@ -1,41 +1,33 @@
 package com.example.mdmovies_midterm.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.mdmovies_midterm.R
+import com.example.mdmovies_midterm.BaseFragment
 import com.example.mdmovies_midterm.databinding.FragmentWelcomeBinding
+import com.google.firebase.auth.FirebaseAuth
 
-class WelcomeFragment : Fragment() {
-    private var binding: FragmentWelcomeBinding? = null
-
-    companion object {
-        fun newInstance() = WelcomeFragment()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
-        return binding!!.root
-    }
+class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>(FragmentWelcomeBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        FirebaseAuth.getInstance().currentUser?.let {
+            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())
+        }
+
         listeners()
+
+
     }
 
 
     private fun listeners() {
-        binding!!.signInBut.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToSignInFragment())
         }
-        binding!!.signUpBut.setOnClickListener {
-            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToSignUpFragment())
+        binding.btnRegister.setOnClickListener {
+            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToRegisterFragment())
         }
     }
 }
