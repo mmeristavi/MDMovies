@@ -1,73 +1,59 @@
 package com.example.mdmovies_midterm.ui
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import com.example.mdmovies_midterm.MainActivity
+import androidx.navigation.fragment.findNavController
+import com.example.mdmovies_midterm.BaseFragment
 import com.example.mdmovies_midterm.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class RegisterFragment : Fragment() {
-
-    private var binding: FragmentRegisterBinding? = null
-
-    companion object {
-        fun newInstance() = RegisterFragment()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        return binding!!.root
-
-    }
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        RegisterActivityListeners()
+        onClickListeners()
     }
 
-    private fun listeners() {
 
-    }
+    private fun onClickListeners() {
+        binding.btnRegister.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            val repeatPassword = binding.etRepeatPassword.text.toString()
 
-    private fun RegisterActivityListeners() {
-        binding!!.registerBut.setOnClickListener {
-            val email = binding!!.emailLayout.text.toString()
-            val pass = binding!!.password.text.toString()
-            val repass = binding!!.repearPassword.text.toString()
-
-            if (email.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
-                Toast.makeText(requireContext(), "ველების შევსება სავალდებულოა", Toast.LENGTH_SHORT)
+            if (email.isEmpty() || password.isEmpty() || repeatPassword.isEmpty()) {
+                Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
+
             }
-            if (pass != repass) {
+            if (password != repeatPassword) {
                 Toast.makeText(
                     requireContext(),
-                    "პაროლები ერთმანეთს უნდა ემთხვეოდეს",
+                    "Passwords do not match",
                     Toast.LENGTH_SHORT
                 ).show()
+
             }
 
-
-
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass)
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(requireActivity(), MainActivity::class.java))
+                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToSignInFragment())
                     } else {
-                        Toast.makeText(requireContext(), "მონაცემები არასწორია", Toast.LENGTH_SHORT)
+                        Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
         }
 
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToWelcomeFragment())
+        }
+
     }
+
+
 }

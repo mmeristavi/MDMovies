@@ -13,16 +13,15 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
 
     private val _newState =
-        MutableStateFlow<Resource<List<MoviesModel.Result?>>>(Resource.Success(emptyList()))
-
+        MutableStateFlow<Resource<MutableList<MoviesModel.Result?>>>(Resource.Success(mutableListOf()))
     val newState = _newState.asStateFlow()
 
-    fun getMovies() {
+    fun getMovies(key: String) {
         viewModelScope.launch {
-            val response = RetrofitClient.connectRetrofit().getItems()
+            val response = RetrofitClient.connectRetrofit().getItems(key)
             if (response.isSuccessful) {
                 val body: MoviesModel? = response.body()
-                _newState.value = Resource.Success(response.body()?.results ?: emptyList())
+                _newState.value = Resource.Success(response.body()?.results?: mutableListOf())
                 Log.d("body", "$body")
             } else {
                 val errorBody = response.errorBody()

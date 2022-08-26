@@ -5,8 +5,8 @@ import com.example.mdmovies_midterm.Models.MoviesModel
 
 
 class DiffUtil(
-    val movieList: MutableList <MoviesModel.Result?>,
-    val searchedList: MutableList<MoviesModel.Result?>
+    private val movieList: MutableList <MoviesModel.Result?>,
+    private val searchedList: MutableList<MoviesModel.Result?>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return movieList.size

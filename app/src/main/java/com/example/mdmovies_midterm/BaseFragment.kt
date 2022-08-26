@@ -26,6 +26,7 @@ abstract class BaseFragment<VB : ViewBinding>
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
     }
 
     override fun onDestroy() {
