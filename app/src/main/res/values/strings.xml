@@ -6,11 +6,11 @@
     <string name="type_your_email" />
     <string name="sign_in_protected_by_google_recaptcha_to_ensure_you_re_not_a_bot_learn_more">sign in protected by google recaptcha to \n ensure you re not a bot <b> Learn more</b>.</string>
     <string name="sign_up_protected_by_google_recaptcha_to_ensure_you_re_not_a_bot_learn_more">sign up protected by google recaptcha to \n ensure you re not a bot <b> Learn more</b>. </string>
-    <string name="remember_me">Remember me</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="key">86d68d7f4a0e3dccfa45e4e97b45f379</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat Password</string>
+    <string name="search_here">Search Here...</string>
 </resources>

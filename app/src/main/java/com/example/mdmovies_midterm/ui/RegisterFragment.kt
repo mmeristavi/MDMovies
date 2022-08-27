@@ -34,21 +34,21 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
-
             }
 
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener { task ->
-                    findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToHomeFragment())
+                    findNavController()
+                        .navigate(RegisterFragmentDirections.actionRegisterFragmentToHomeFragment())
                 }
                 .addOnFailureListener { task ->
                     Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
                         .show()
                 }
         }
-
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToWelcomeFragment())
+            findNavController()
+                .navigate(RegisterFragmentDirections.actionRegisterFragmentToWelcomeFragment())
         }
 
     }

@@ -27,17 +27,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 return@setOnClickListener
             }
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        findNavController().navigate(LoginFragmentDirections.actionSignInFragmentToHomeFragment())
-                    } else {
-                        Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
-                            .show()
-                    }
+                .addOnSuccessListener { task ->
+                    findNavController()
+                        .navigate(LoginFragmentDirections.actionSignInFragmentToHomeFragment())
                 }
-
+                .addOnFailureListener {
+                    Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
+                        .show()
+                }
         }
-
         binding.btnBack.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionSignInFragmentToWelcomeFragment())
         }

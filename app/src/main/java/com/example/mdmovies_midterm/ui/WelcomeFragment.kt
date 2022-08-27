@@ -12,15 +12,17 @@ class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>(FragmentWelcomeBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        FirebaseAuth.getInstance().currentUser?.let {
-            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())
-        }
-
+        letCurrentUsers()
         listeners()
-
 
     }
 
+
+    private fun letCurrentUsers() {
+        FirebaseAuth.getInstance().currentUser?.let {
+            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())
+        }
+    }
 
     private fun listeners() {
         binding.btnLogin.setOnClickListener {

@@ -19,7 +19,8 @@ class FragmentSplashScreen : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
         Handler(Looper.myLooper()!!).postDelayed({
-            findNavController().navigate(FragmentSplashScreenDirections.actionFragmentSplashScreenToWelcomeFragment())
+            findNavController().
+            navigate(FragmentSplashScreenDirections.actionFragmentSplashScreenToWelcomeFragment())
         }, 3000)
         return view
     }
