@@ -38,22 +38,20 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
             }
 
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToSignInFragment())
-                    } else {
-                        Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
-                            .show()
-                    }
+                .addOnSuccessListener { task ->
+                    findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToHomeFragment())
+                }
+                .addOnFailureListener { task ->
+                    Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
+                        .show()
                 }
         }
-
 
         binding.btnBack.setOnClickListener {
             findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToWelcomeFragment())
         }
 
     }
-
-
 }
+
+

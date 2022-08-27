@@ -16,7 +16,7 @@ class DataSource: PagingSource <Int, MoviesModel.Result>() {
         val nextPage = page + 1
         return try {
             val response = RetrofitClient.connectRetrofit()
-                .getItems(key = "86d68d7f4a0e3dccfa45e4e97b45f379", page = page)
+                .getMovies(key = "86d68d7f4a0e3dccfa45e4e97b45f379", page = page)
             if (response.isSuccessful) {
                 val movies = response.body()?.results?: emptyList()
                 return LoadResult.Page (movies, prevPage, nextPage)
