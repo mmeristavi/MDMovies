@@ -9,5 +9,11 @@
     <color name="white">#FFFFFF</color>
     <color name="grey">#B02E2C2C</color>
     <color name="searchbar">#66FFFFFF</color>
+    <color name="blue">#660D2D8C</color>
+    <color name="red">#66D50849</color>
+    <color name="logOut">#A4DC0A4D</color>
+    <color name="hintColor">#B0B4BC</color>
+
+
 
 </resources>

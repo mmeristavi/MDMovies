@@ -9,14 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.mdmovies_midterm.Adapters.MovieAdapter
+import androidx.navigation.fragment.findNavController
 import com.example.mdmovies_midterm.Adapters.SearchedMovieAdapter
 import com.example.mdmovies_midterm.BaseFragment
+import com.example.mdmovies_midterm.Extensions.focus
 import com.example.mdmovies_midterm.Models.MoviesModel
 import com.example.mdmovies_midterm.R
 import com.example.mdmovies_midterm.Utils.Resource
 import com.example.mdmovies_midterm.ViewModels.SearchMovieViewModel
 import com.example.mdmovies_midterm.databinding.FragmentSearchMovieBinding
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class SearchMovieFragment :
@@ -34,6 +36,8 @@ class SearchMovieFragment :
         buildAdapter()
         searchList()
         observers()
+        logOutListener()
+        focusOnSearch()
 
 
     }
@@ -91,8 +95,17 @@ class SearchMovieFragment :
     }
 
 
+    private fun logOutListener() {
+        binding.btnLogOut.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            findNavController()
+                .navigate(SearchMovieFragmentDirections.actionSearchMovieFragmentToSignInFragment())
+        }
+    }
 
-
+    private fun focusOnSearch() {
+        binding.etSearch.focus()
+    }
 
 }
 

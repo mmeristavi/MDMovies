@@ -17,23 +17,15 @@ class DiffUtil(
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return movieList[oldItemPosition]?.title == searchedMovieList[newItemPosition]?.title
+        return movieList[oldItemPosition]?.id == searchedMovieList[newItemPosition]?.id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return when {
-            movieList[oldItemPosition]?.title != searchedMovieList[newItemPosition]?.title -> {
+            movieList[oldItemPosition]?.id != searchedMovieList[newItemPosition]?.id -> {
                 false
             }
-            movieList[oldItemPosition]?.voteAverage != searchedMovieList[newItemPosition]?.voteAverage -> {
-                false
-            }
-            movieList[oldItemPosition]?.overview != searchedMovieList[newItemPosition]?.overview -> {
-                false
-            }
-            movieList[oldItemPosition]?.posterPath != searchedMovieList[newItemPosition]?.posterPath -> {
-                false
-            }
+
             else -> true
         }
     }
