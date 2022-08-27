@@ -15,7 +15,7 @@ class LoaderAdapter: LoadStateAdapter <LoaderAdapter.LoaderViewHolder> (){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState):
-            LoaderAdapter.LoaderViewHolder {
+            LoaderViewHolder {
         return LoaderViewHolder(LoaderBinding.inflate
             (LayoutInflater.from(parent.context), parent, false))
     }

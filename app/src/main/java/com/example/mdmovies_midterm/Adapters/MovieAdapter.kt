@@ -22,15 +22,10 @@ class MovieAdapter() :
         override fun areContentsTheSame (oldItem: MoviesModel.Result, newItem: MoviesModel.Result): Boolean {
             return oldItem == newItem
         }
-
-
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder (
         ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false ))
-
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentItem = getItem(position)
@@ -42,10 +37,8 @@ class MovieAdapter() :
         }
     }
 
-
     inner class MovieViewHolder(val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
     }
 
 

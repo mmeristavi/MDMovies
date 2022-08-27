@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private lateinit var adapter: MovieAdapter
 
     private val viewModel: HomeViewModel by viewModels()
-    private var movieList = mutableListOf<MoviesModel.Result?>()
+//    private var movieList = mutableListOf<MoviesModel.Result?>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,11 +34,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         setHasOptionsMenu(true)
         logOutListener()
         buildAdapter()
-        filter()
+//        filter()
         observers()
 
 
-
+    }
 
 
 
@@ -75,7 +75,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 //                }
 //            }
 //        }
-    }
+
 
     private fun buildAdapter() {
         adapter = MovieAdapter()
@@ -94,15 +94,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
 
-    private fun filter() {
-        binding.etSearch.doOnTextChanged { text, _, _, _ ->
-            val filteredList = movieList.filter {
-                it?.title?.lowercase()?.contains(text.toString().lowercase()) ?: false
-            }
-        }
-    }
-
-
+//    private fun filter() {
+//        binding.etSearch.doOnTextChanged { text, _, _, _ ->
+//            val filteredList = movieList.filter {
+//                it?.title?.lowercase()?.contains(text.toString().lowercase()) ?: false
+//            }
+//        }
+//    }
 
 
 
@@ -123,7 +121,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.searchBar) {
-            //findNavController().navigate()
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchMovieFragment())
         }
         return true
     }
@@ -131,7 +129,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 }
 
 
-//            viewModel.getMoviesByName(key = "key", title: String)
+
 
 
 
