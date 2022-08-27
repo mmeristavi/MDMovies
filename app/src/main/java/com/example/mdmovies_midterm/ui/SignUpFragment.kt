@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.mdmovies_midterm.MainActivity
 import com.example.mdmovies_midterm.R
 import com.example.mdmovies_midterm.databinding.FragmentSignUpBinding
@@ -45,14 +46,14 @@ class SignUpFragment : Fragment() {
             val repass = binding!!.repearPassword.text.toString()
 
             if (email.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
-                Toast.makeText(requireContext(), "ველების შევსება სავალდებულოა", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }
             if (pass != repass) {
                 Toast.makeText(
                     requireContext(),
-                    "პაროლები ერთმანეთს უნდა ემთხვეოდეს",
+                    "Passwords do not match",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -60,15 +61,13 @@ class SignUpFragment : Fragment() {
 
 
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        startActivity(Intent(requireActivity(), MainActivity::class.java))
-                    } else {
-                        Toast.makeText(requireContext(), "მონაცემები არასწორია", Toast.LENGTH_SHORT)
-                            .show()
+                .addOnSuccessListener { task ->
+                        findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToSignInFragment())
+                    }
+                .addOnFailureListener {
+                    Toast.makeText(requireContext(), "Wrong credentials", Toast.LENGTH_SHORT)
+                        .show()
+                }
                     }
                 }
         }
-
-    }
-}
