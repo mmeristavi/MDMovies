@@ -1,27 +1,27 @@
-# README #
+# App Name #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+MDMovies App
 
-### What is this repository for? ###
+#Requirement
+We have created an application that offers users a large selection of movies in high quality;
+Users can register and create their own list of favorite movies.
+The user will be able to see through the application which are the best rated movies
+of that time and the last ones added.
+######
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Programming language - Kotlin
+* Error handling for loss of network connection
+* Architecture - MVVM
+* Localization - For Eng
+* Firebase
 
-### How do I get set up? ###
+###Contact##
+📩  toimariamia45@gmail.com  📱
+📩  datotsiskarashvili@gmail.com 📱
+### App Testing ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+I was testing this app manually and had several test cases.
+Tried my best to prevent bugs. Bugs I found during testing are all fixed.
 
 ### Who do I talk to? ###
 

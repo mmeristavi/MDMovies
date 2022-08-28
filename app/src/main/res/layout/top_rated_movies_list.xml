@@ -46,6 +46,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="76dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvOverview"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_icon"/>
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvRating"
             android:layout_width="wrap_content"

@@ -39,5 +39,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         binding.btnBack.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionSignInFragmentToWelcomeFragment())
         }
+        binding.resetPass.setOnClickListener{
+            findNavController().navigate(LoginFragmentDirections.actionSignInFragmentToResetPass2())
+        }
     }
 }

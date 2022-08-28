@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_signInFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_resetPass2"
+            app:destination="@id/resetPass2" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -85,4 +88,9 @@
             android:id="@+id/action_searchMovieFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/resetPass2"
+        android:name="com.example.mdmovies_midterm.ui.ResetPass"
+        android:label="fragment_reset_pass"
+        tools:layout="@layout/fragment_reset_pass" />
 </navigation>
