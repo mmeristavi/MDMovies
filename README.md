@@ -10,11 +10,17 @@ of that time and the last ones added.
 ######
 
 * Programming language - Kotlin
-* Error handling for loss of network connection
 * Architecture - MVVM
 * Localization - For Eng
 * Firebase
 
+#used #
+Retrofit
+, Paging 3
+, RecyclerView
+, Fragments
+, Firebase
+, Navigation
 ###Contact##
 📩  toimariamia45@gmail.com  📱
 📩  datotsiskarashvili@gmail.com 📱
