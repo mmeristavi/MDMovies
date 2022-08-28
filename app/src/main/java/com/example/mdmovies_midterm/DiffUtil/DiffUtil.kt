@@ -8,6 +8,7 @@ class DiffUtil(
     val movieList: MutableList <TopRatedMoviesModel.Result?>,
     val searchedMovieList: MutableList<TopRatedMoviesModel.Result?>
 ) : DiffUtil.Callback() {
+    //w
     override fun getOldListSize(): Int {
         return movieList.size
     }
