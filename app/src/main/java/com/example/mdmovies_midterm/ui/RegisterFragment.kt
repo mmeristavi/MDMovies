@@ -42,7 +42,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                         .navigate(RegisterFragmentDirections.actionRegisterFragmentToHomeFragment())
                 }
                 .addOnFailureListener { task ->
-                    Toast.makeText(requireContext(), "Wrong Credentials", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), "Password should contain at least 6 characters", Toast.LENGTH_SHORT)
                         .show()
                 }
         }
