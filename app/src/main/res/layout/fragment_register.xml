@@ -39,13 +39,14 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="260dp"
         android:background="@drawable/shape1"
-        android:gravity="center"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="24dp"
+        android:paddingStart="11dp"
         android:hint="@string/email"
         android:textColorHint="@color/hintColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +56,6 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24dp"
         android:textColorHint="@color/hintColor"
-        android:textAlignment="center"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:passwordToggleEnabled="true"
@@ -71,10 +71,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:autofillHints="password"
-            android:gravity="center"
-            android:textAlignment="center"
             android:background="@drawable/shape1"
-            android:drawablePadding="90dp"
+            android:drawablePadding="10dp"
             android:textColorHint="@color/hintColor"
             android:hint="@string/password"
             android:inputType="textPassword" />
@@ -88,8 +86,6 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24dp"
         android:textColorHint="@color/hintColor"
-        android:textAlignment="center"
-        android:gravity="center"
         app:boxStrokeWidth="0dp"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/red"
@@ -103,10 +99,8 @@
             android:id="@+id/etRepeatPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textAlignment="center"
-            android:gravity="center"
             android:background="@drawable/shape1"
-            android:drawablePadding="90dp"
+            android:drawablePadding="10dp"
             android:textColorHint="@color/hintColor"
             android:hint="@string/repeat_password"
             android:inputType="textPassword" />

@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mdmovies_midterm.DiffUtil.DiffUtil
 import com.example.mdmovies_midterm.Extensions.loadImage
-import com.example.mdmovies_midterm.Models.MoviesModel
+import com.example.mdmovies_midterm.Models.TopRatedMoviesModel
 import com.example.mdmovies_midterm.databinding.SearchedItemListBinding
 
 class SearchedMovieAdapter()
     : RecyclerView.Adapter <SearchedMovieAdapter.SearchMovieViewHolder>() {
 
 
-    var oldSearchedMovieList = mutableListOf<MoviesModel.Result?>()
+    var oldSearchedMovieList = mutableListOf<TopRatedMoviesModel.Result?>()
 
     inner class SearchMovieViewHolder (val binding: SearchedItemListBinding) :
     RecyclerView.ViewHolder(binding.root)
@@ -36,7 +36,7 @@ class SearchedMovieAdapter()
         }
     }
 
-    fun setData(newSearchedMovieList: MutableList<MoviesModel.Result?>) {
+    fun setData(newSearchedMovieList: MutableList<TopRatedMoviesModel.Result?>) {
         val diffUtil = DiffUtil(oldSearchedMovieList, newSearchedMovieList)
         val diffResults = androidx.recyclerview.widget.DiffUtil.calculateDiff(diffUtil)
         oldSearchedMovieList = newSearchedMovieList

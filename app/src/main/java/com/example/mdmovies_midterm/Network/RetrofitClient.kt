@@ -1,6 +1,7 @@
 package com.example.mdmovies_midterm.Network
 
-import com.example.mdmovies_midterm.Models.MoviesModel
+import com.example.mdmovies_midterm.Models.NowPlayingMoviesModel
+import com.example.mdmovies_midterm.Models.TopRatedMoviesModel
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -23,12 +24,15 @@ object RetrofitClient {
 
 interface Movies {
     @GET("movie/top_rated")
-    suspend fun getMovies (@Query("api_key") key : String, @Query("page") page : Int):
-            Response<MoviesModel>
+    suspend fun getTopRatedMovies (@Query("api_key") key : String, @Query("page") page : Int):
+            Response<TopRatedMoviesModel>
 
     @GET("search/movie")
     suspend fun searchMovies (@Query("api_key") key: String, @Query("query") query: String):
-            Response<MoviesModel>
+            Response<TopRatedMoviesModel>
 
+    @GET("movie/now_playing")
+    suspend fun getNowPlayingMovies (@Query("api_key") key : String, @Query("page") page : Int):
+            Response<NowPlayingMoviesModel>
 
 }

@@ -1,12 +1,12 @@
 package com.example.mdmovies_midterm.DiffUtil
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.mdmovies_midterm.Models.MoviesModel
+import com.example.mdmovies_midterm.Models.TopRatedMoviesModel
 
 
 class DiffUtil(
-    val movieList: MutableList <MoviesModel.Result?>,
-    val searchedMovieList: MutableList<MoviesModel.Result?>
+    val movieList: MutableList <TopRatedMoviesModel.Result?>,
+    val searchedMovieList: MutableList<TopRatedMoviesModel.Result?>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return movieList.size

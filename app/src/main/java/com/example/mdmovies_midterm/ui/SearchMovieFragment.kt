@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mdmovies_midterm.Adapters.SearchedMovieAdapter
 import com.example.mdmovies_midterm.BaseFragment
 import com.example.mdmovies_midterm.Extensions.focus
-import com.example.mdmovies_midterm.Models.MoviesModel
+import com.example.mdmovies_midterm.Models.TopRatedMoviesModel
 import com.example.mdmovies_midterm.R
 import com.example.mdmovies_midterm.Utils.Resource
 import com.example.mdmovies_midterm.ViewModels.SearchMovieViewModel
@@ -27,7 +27,7 @@ class SearchMovieFragment :
     private lateinit var adapter: SearchedMovieAdapter
 
     private val viewModel: SearchMovieViewModel by viewModels()
-    private var movieList = mutableListOf<MoviesModel.Result>()
+    private var movieList = mutableListOf<TopRatedMoviesModel.Result>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
