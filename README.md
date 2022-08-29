@@ -10,15 +10,13 @@ of that time and the last ones added.
 ######
 
 * Programming language - Kotlin
-<<<<<<< HEAD
-* Error handling for loss of network connection
+
 =======
->>>>>>> 1d1b6556bb829a9a6b604d420cd1ad1c8f5778e2
 * Architecture - MVVM
 * Localization - For Eng
 * Firebase
 
-<<<<<<< HEAD
+
 =======
 #used #
 Retrofit
@@ -27,7 +25,7 @@ Retrofit
 , Fragments
 , Firebase
 , Navigation
->>>>>>> 1d1b6556bb829a9a6b604d420cd1ad1c8f5778e2
+
 ###Contact##
 📩  toimariamia45@gmail.com  📱
 📩  datotsiskarashvili@gmail.com 📱
